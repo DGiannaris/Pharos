@@ -6,15 +6,14 @@
 
 ol{
   padding-top: 4px;
-  list-style-type: none;
+  list-style-type: "\1F4C1";
 }
-
-
 
 li{
   padding-top: 8px;
   cursor: pointer;
   user-select: none;
+  font-weight: normal;
 }
 
 .vis{
@@ -25,3 +24,14 @@ li{
   display: none;
 }
 
+.first {
+  color: #4DB6AC;
+}
+
+.second {
+  color: #26A69A;
+}
+
+.third {
+  color: #009688;
+}

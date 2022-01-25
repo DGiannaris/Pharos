@@ -23,7 +23,9 @@ interface Props {
 export const Navbar: React.FC<Props> = ({ data }: Props) => {
   const tree = sortLayers(groupByKey(data, TREE_KEYS))
   // I used an object instead of an array ause objects are faster in retrieval
-
+  console.log(tree[0],  )
+  console.log(tree[0].children)
+  console.log(tree[0].grandChildren)
   const [isOpen, setOpen] = React.useState({ child: '', grandchild: '' } as Record<string, string | undefined>);
   const onClickParent = (event: any, name: string) => {
     event.stopPropagation();
@@ -55,6 +57,7 @@ export const Navbar: React.FC<Props> = ({ data }: Props) => {
               <li 
                 key={`${lvl1.name}${idx}`}
                 onClick={(e) => onClickParent(e, lvl1.name)}
+                className='first'
               >
                 {`${lvl1.name}`}
                 <ol className={isOpen.child === lvl1.name ? 'vis' : 'invis'}>
@@ -63,17 +66,18 @@ export const Navbar: React.FC<Props> = ({ data }: Props) => {
                       <li 
                         key={`${lvl2.name}${idx}`}
                         onClick={(e) => onClickChild(e, lvl2.name)}
-
+                        className='second'
                       >
                         {`${lvl2.name}`}
                         <ol className={isOpen.grandchild === lvl2.name ? 'vis' : 'invis'}>
                           {
-                            sortLayers(lvl2.grandChildren).map((lvl3: Application, idx: number) => (
+                            sortLayers(lvl2.children).map((lvl3: Layer2Type, idx: number) => (
                               <li 
                                 key={`${lvl3.name}${idx}`}
-                               
+                                className='third'
+                                onClick={ (e) => {e.stopPropagation(); console.log(lvl3.grandChildren)}}
                               >
-                                {`${lvl3.BCAP3}`}
+                                {`${lvl3.name}`}
                               </li>
                             ))
                           }
