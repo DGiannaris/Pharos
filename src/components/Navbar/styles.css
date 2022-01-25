@@ -1,0 +1,27 @@
+.wrapper{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+ol{
+  padding-top: 4px;
+  list-style-type: none;
+}
+
+
+
+li{
+  padding-top: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vis{
+  display: block;
+}
+
+.invis{
+  display: none;
+}
+
