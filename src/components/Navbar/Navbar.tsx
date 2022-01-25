@@ -12,7 +12,7 @@ import './styles.css';
 
 interface Props {
   data: Application[],
-
+  onSelect: (data: Application[]) => void;
 }
 
 /**
@@ -20,13 +20,12 @@ interface Props {
  * @param data The tree of data, and its levels
  * @returns 
  */
-export const Navbar: React.FC<Props> = ({ data }: Props) => {
+export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
   const tree = sortLayers(groupByKey(data, TREE_KEYS))
   // I used an object instead of an array ause objects are faster in retrieval
-  console.log(tree[0],  )
-  console.log(tree[0].children)
-  console.log(tree[0].grandChildren)
+
   const [isOpen, setOpen] = React.useState({ child: '', grandchild: '' } as Record<string, string | undefined>);
+
   const onClickParent = (event: any, name: string) => {
     event.stopPropagation();
   
@@ -75,7 +74,10 @@ export const Navbar: React.FC<Props> = ({ data }: Props) => {
                               <li 
                                 key={`${lvl3.name}${idx}`}
                                 className='third'
-                                onClick={ (e) => {e.stopPropagation(); console.log(lvl3.grandChildren)}}
+                                onClick={ (e) => {
+                                  e.stopPropagation();
+                                  onSelect(lvl3.grandChildren);
+                                }}
                               >
                                 {`${lvl3.name}`}
                               </li>

@@ -1,4 +1,31 @@
 body {
   font-size: 1em;
-  font-family: 'Trebuchet MS', sans-serif;;
+  font-family: 'Trebuchet MS', sans-serif;
+  
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.navWrapper {
+ height: 350px;
+}
+
+.tileWrapper {
+  flex: 2;
+  height: 350px;
+  flex-wrap: wrap;
+  padding: 55px 35px 35px 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleWrapper{
+  display: flex;
+  width: 450px;
+  justify-content: center;
+  align-items: center;
 }
