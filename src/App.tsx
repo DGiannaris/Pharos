@@ -1,9 +1,10 @@
-import React from "react";
+import * as React from 'react';
+import { Dashboard } from './Dashboard';
 
 function App() {
   return (
     <div>
-      <h1>Pharos Coding Exercise</h1>
+      <Dashboard />
     </div>
   );
 }
