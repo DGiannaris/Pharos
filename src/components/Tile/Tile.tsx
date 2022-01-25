@@ -9,6 +9,6 @@ interface Props {
 export const Tile = ({title, price}: Props) => (
   <div className='tile'>
     <h3 className='title'>{title}</h3>
-    <p className='card-price'>{`Total spend: $${price}`}</p>
+    <p>{`Total spend: $${price}`}</p>
   </div>
 );
