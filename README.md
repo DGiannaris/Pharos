@@ -1,6 +1,12 @@
 # Pharos Coding Exercise
+ ## Comments: 
+ Was a cool exercise, with a simple concept, but with tricky parts.
+ The most challenging parts where the flat array to a 3 leveled tree, and the fact that you couldn't use external libs.
+ (axios would be useful though without taking anything away)
 
-This exercise is to help us better understand your experience in react and typescript, how you would go about structuring your work, code quality, styles, etc...
+ The UI looks like this:
+
+ ![Pharos Dimitris Giannaris UI](/pharosUI.jpg)
 
 ## Setup
 
