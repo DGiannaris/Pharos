@@ -49,7 +49,10 @@ export const Dashboard = () => {
     <div className='wrapper'>
       <div className='navWrapper'>
         <div className='titleWrapper'>
-          <h1>Pharos Dimitris Giannaris</h1>
+          <div className='respTitle'>
+            <h1>Pharos</h1>
+            <h1 className='headings'>Dimitris Giannaris</h1>
+          </div>
           <Spinner isLoading={loading} />
         </div>
         { 

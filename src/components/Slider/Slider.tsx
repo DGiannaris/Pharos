@@ -17,9 +17,9 @@ interface Props {
  */
 export const Slider = ({min, max, range, onRange}: Props) => {
   return (
-    <div>
-      <h4>Filter by spending:</h4>
-      <h5>{`Current max: ${range === 0 ? max : range}`}</h5>
+    <div style={{paddingLeft: 20}}>
+      <h4 className='selectNone'>Filter by spending:</h4>
+      <h5 className='selectNone'>{`Current max: ${range === 0 ? max : range}`}</h5>
       <input 
         className='slider'
         onChange={(event) => onRange(Number(event.target.value))}
