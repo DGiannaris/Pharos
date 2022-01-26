@@ -56,7 +56,7 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
               <li 
                 key={`${lvl1.name}${idx}`}
                 onClick={(e) => onClickParent(e, lvl1.name)}
-                className='first'
+                className={`first ${isOpen.child === lvl1.name ? 'opened':'closed'}`}
               >
                 {`${lvl1.name}`}
                 <ol className={isOpen.child === lvl1.name ? 'vis' : 'invis'}>
@@ -65,7 +65,7 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
                       <li 
                         key={`${lvl2.name}${idx}`}
                         onClick={(e) => onClickChild(e, lvl2.name)}
-                        className='second'
+                        className={`second ${isOpen.child === lvl2.name ? 'opened':'closed'}`}
                       >
                         {`${lvl2.name}`}
                         <ol className={isOpen.grandchild === lvl2.name ? 'vis' : 'invis'}>
@@ -73,7 +73,7 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
                             sortLayers(lvl2.children).map((lvl3: Layer2Type, idx: number) => (
                               <li 
                                 key={`${lvl3.name}${idx}`}
-                                className='third'
+                                className='third last'
                                 onClick={ (e) => {
                                   e.stopPropagation();
                                   onSelect(lvl3.grandChildren);

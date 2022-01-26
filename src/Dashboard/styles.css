@@ -40,5 +40,7 @@ body {
 
   .tileWrapper {
     justify-content: flex-start;
+    margin-top: 150px;
+    margin-left: -40px;
   }
 }

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { Tile } from './Tile';
-import { stringify } from 'querystring';
 
 
 describe('Tile component test', () => {

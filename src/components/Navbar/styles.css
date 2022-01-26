@@ -6,7 +6,20 @@
 
 ol{
   padding-top: 4px;
+}
+
+.opened{
+  list-style-type: "\1F4C2";
+  font-size: 16px;
+}
+
+.closed{
   list-style-type: "\1F4C1";
+  font-size: 16px;
+}
+
+.last{
+  list-style-type: none;
 }
 
 li{
