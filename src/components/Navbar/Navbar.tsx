@@ -25,10 +25,10 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
   // I used an object instead of an array ause objects are faster in retrieval
 
   const [isOpen, setOpen] = React.useState({ child: '', grandchild: '' } as Record<string, string | undefined>);
-
+  const [selected, setSelected] =React.useState('');
+  
   const onClickParent = (event: any, name: string) => {
     event.stopPropagation();
-  
     if (name === isOpen.child) {
       const { child: removedProperty, ...isOpenRest } = isOpen;
       setOpen({...isOpenRest});
@@ -39,7 +39,6 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
 
   const onClickChild = (event: any, name: string) => {
     event.stopPropagation();
-
     if (name === isOpen.grandchild) {
       const { grandchild: removedProperty, ...isOpenRest } = isOpen;
       setOpen({...isOpenRest});
@@ -65,7 +64,7 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
                       <li 
                         key={`${lvl2.name}${idx}`}
                         onClick={(e) => onClickChild(e, lvl2.name)}
-                        className={`second ${isOpen.child === lvl2.name ? 'opened':'closed'}`}
+                        className={`second ${isOpen.grandchild === lvl2.name ? 'opened':'closed'}`}
                       >
                         {`${lvl2.name}`}
                         <ol className={isOpen.grandchild === lvl2.name ? 'vis' : 'invis'}>
@@ -73,10 +72,11 @@ export const Navbar: React.FC<Props> = ({ data, onSelect }: Props) => {
                             sortLayers(lvl2.children).map((lvl3: Layer2Type, idx: number) => (
                               <li 
                                 key={`${lvl3.name}${idx}`}
-                                className='third last'
+                                className= {`third last ${selected === lvl3.name ? 'selected': ''}`}
                                 onClick={ (e) => {
                                   e.stopPropagation();
                                   onSelect(lvl3.grandChildren);
+                                  setSelected(lvl3.name);
                                 }}
                               >
                                 {`${lvl3.name}`}
